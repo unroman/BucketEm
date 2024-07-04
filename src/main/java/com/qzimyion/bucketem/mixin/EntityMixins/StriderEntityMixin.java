@@ -85,7 +85,7 @@ public abstract class StriderEntityMixin extends AnimalEntity implements Bucketa
         this.dataTracker.set(FROM_BUCKET, fromBucket);
     }
 
-    @Inject(at = @At("HEAD"), method = "interactMob", cancellable = true)
+    @Inject(at = @At("RETURN"), method = "interactMob", cancellable = true)
     public void interactMob(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir){
         cir.setReturnValue(tryLavaBucket(player, hand, this).orElse(super.interactMob(player, hand)));
     }
