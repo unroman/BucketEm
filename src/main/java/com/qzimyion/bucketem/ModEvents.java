@@ -95,6 +95,7 @@ public class ModEvents {
 
                 entity.discard();
             }
+            //Strider
 
             //Bee
             if (itemStack.getItem() == GLASS_BOTTLE && entity.isAlive() && entity instanceof BeeEntity bee){
@@ -110,8 +111,7 @@ public class ModEvents {
                         nbt.putInt("Anger", bee.getAngerTime());
                         nbt.putInt("Age", bee.getBreedingAge());
                         nbt.putFloat("Health", bee.getHealth());
-                        if (bee.getAngryAt() != null)
-                            nbt.putUuid("AngryAt", bee.getAngryAt());
+                        nbt.putUuid("AngryAt", bee.getAngryAt());
                     });
                     itemStack.decrement(1);
                     player.incrementStat(Stats.USED.getOrCreateStat(itemStack.getItem()));
@@ -133,11 +133,8 @@ public class ModEvents {
 
                 entity.discard();
                 return ActionResult.SUCCESS;
-
             }
-
             return ActionResult.PASS;
-
         }));
 
         Bucketem.LOGGER.info("Registering mod Events");
